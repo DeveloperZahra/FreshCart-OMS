@@ -1,0 +1,520 @@
+/* ================================
+   Global Styles
+   ================================ */
+
+/* Reset simple */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Body */
+body {
+    background-color: white;
+    color: black;
+}
+
+/* Links */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Container to limit width */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ================================
+   Header & Navbar
+   ================================ */
+
+/* Header bar */
+.header {
+    background-color: white;
+    border-bottom: 1px solid lightgray;
+}
+
+/* Navbar flex layout */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 0;
+}
+
+/* Left side of navbar: logo + menu */
+.nav-left {
+    display: flex;
+    align-items: center;
+}
+
+/* Logo area */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Logo image */
+.logo img {
+    height: 28px;
+}
+
+/* Logo text */
+.logo span {
+    font-size: 22px;
+    font-weight: 700;
+    color: green;
+}
+
+/* Main nav links */
+.nav-links {
+    display: flex;
+    gap: 25px;
+    margin-left: 35px;
+}
+
+/* Single nav link */
+.nav-links a {
+    font-size: 14px;
+    color: gray;
+}
+
+/* Hover for nav link */
+.nav-links a:hover {
+    color: green;
+}
+
+/* Right side (icons + auth links) */
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    
+}
+
+/* Social and cart icons */
+.icon-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: gray;
+    font-size: 14px;
+}
+
+/* Auth links (login / register / sign out) */
+.auth-links a {
+    font-size: 14px;
+    margin-left: 10px;
+    color: gray;
+}
+
+.auth-links a:hover {
+    color: green;
+}
+
+/* ================================
+   Hero Section 
+   ================================ */
+
+/* === HERO BANNER === */
+.hero-section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.hero-left img {
+    width: 750px;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.hero-right {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.hero-right .hero-small img {
+    width: 300px;
+    height: 170px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+
+/* ================================
+   Categories section
+   ================================ */
+
+/* Categories wrapper */
+.categories {
+    padding: 15px 0 25px 0;
+}
+
+/* Categories title */
+.categories h2 {
+    margin-bottom: 15px;
+    font-size: 20px;
+}
+
+/* Horizontal scroll look */
+.categories-row {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+}
+
+/* Category card */
+.category-card {
+    position: relative;
+    min-width: 110px;
+    height: 110px;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: lightgray;
+    cursor: pointer;
+}
+
+/* Category image */
+.category-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Category label at bottom */
+.category-label {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 5px 8px;
+    font-size: 12px;
+    color: white;
+    background: linear-gradient(to top, black, transparent);
+}
+
+/* Small strip label (like “Children's books”) */
+.category-strip {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    background-color: lightgreen;
+    color: green;
+    padding: 3px 6px;
+    font-size: 11px;
+    border-radius: 4px;
+}
+
+/* ================================
+   Products Grid
+   ================================ */
+
+/* Products wrapper */
+.products {
+    padding: 10px 0 40px 0;
+}
+
+/* Products grid layout */
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+}
+
+/* Product card */
+.product-card {
+    border-radius: 8px;
+    border: 1px solid lightgray;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    background-color: white;
+}
+
+/* Product image */
+.product-card img {
+    width: 100%;
+    height: 130px;
+    object-fit: contain;
+}
+
+/* Product category text (Electronics) */
+.product-category {
+    font-size: 11px;
+    color: green;
+}
+
+/* Product name */
+.product-name {
+    font-size: 13px;
+    font-weight: 600;
+}
+
+/* Product price */
+.product-price {
+    font-size: 13px;
+    color: black;
+}
+
+/* Product rating row */
+.product-rating {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 12px;
+    color: goldenrod;
+}
+
+/* Rating star */
+.product-rating span.star {
+    font-size: 13px;
+}
+
+/* ================================
+          APP DOWNLOAD BOX
+   ================================ */
+.app-section {
+    width: 100%;
+    background-color: var(--bg-footer);
+    padding: 40px 0;
+    border-top: 1px solid var(--border);
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+.app-grid {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.app-title {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.app-sub {
+    color: var(--muted);
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.app-form {
+    display: flex;
+    gap: 10px;
+}
+
+.app-form input {
+    flex: 1;
+    padding: 12px 15px;
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    font-size: 15px;
+}
+
+.app-form button {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--green);
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.app-form button:hover {
+    opacity: 0.9;
+}
+
+.app-bottom {
+    margin-top: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.payment-icons img {
+    height: 28px;
+    margin-right: 8px;
+}
+
+.store-icons img {
+    height: 32px;
+    margin-left: 10px;
+}
+
+/* ================================
+   Forms (Login / Register)
+   ================================ */
+/* ===============  AUTH PAGES (LOGIN / REGISTER)  =============== */
+.auth-main {
+    padding: 40px 0 60px;
+}
+
+.auth-box {
+    width: 60%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.auth-box h2 {
+    font-size: 24px;
+    margin-bottom: 25px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 3px;
+    text-transform: lowercase;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 3px;
+    border: 1px solid var(--border);
+    font-size: 14px;
+}
+
+.auth-btn {
+    margin-top: 10px;
+    padding: 8px 20px;
+    background-color: var(--green);
+    color: #fff;
+    border-radius: 3px;
+    border: none;
+    cursor: pointer;
+    float: right;
+}
+
+.auth-btn:hover {
+    opacity: 0.9;
+}
+
+/* Button inside forms */
+.form-box .btn {
+    padding: 8px 25px;
+    border-radius: 3px;
+    border: none;
+    background-color: lightgreen;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+/* ================================
+   Simple responsiveness
+   ================================ */
+/* ========== RESPONSIVE DESIGN ========== */
+
+/* MOBILE */
+@media (max-width: 600px) {
+
+    /* HEADER */
+    .nav-links {
+        display: none;
+    }
+
+    .icon-group a {
+        font-size: 14px;
+        margin-right: 5px;
+    }
+
+    .auth-links a {
+        font-size: 14px;
+    }
+
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    /* HERO SECTION */
+    .hero-section {
+        flex-direction: column;
+    }
+
+    .hero-left img {
+        width: 100%;
+        height: auto;
+    }
+
+    .hero-right {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .hero-right .hero-small img {
+        width: 100%;
+        height: auto;
+    }
+
+    /* CATEGORIES */
+    .categories-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* PRODUCTS */
+    .products-grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    /* APP SECTION */
+    .app-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+}
+
+/* TABLET */
+@media (min-width: 601px) and (max-width: 992px) {
+
+    /* PRODUCTS */
+    .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* CATEGORIES */
+    .categories-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    /* HERO SECTION */
+    .hero-section {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hero-left img {
+        width: 90%;
+    }
+}
+
+/* LARGE SCREENS */
+@media (min-width: 993px) {
+    .products-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+

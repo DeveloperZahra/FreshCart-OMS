@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FreshCart - Register</title>
+    <link rel="stylesheet" href="./CSS/style.css">
+</head>
+<body>
+
+   
+   <header class="header">
+        <div class="container navbar">
+            <!-- Left: logo + menu -->
+            <div style="display:flex; align-items:center;">
+                <!-- Logo -->
+                <a href="index.html" class="logo">
+                    <!-- Put your logo image in images/freshcart-logo.svg -->
+                    <img src="images/freshcart-logo.svg" alt="FreshCart Logo">
+                   
+                </a>
+
+                <!-- Menu links -->
+                <nav class="nav-links">
+                    <a href="index.html">Home</a>
+                    <a href="#">Cart</a>
+                    <a href="#">Products</a>
+                    <a href="#">Categories</a>
+                    <a href="#">Brands</a>
+                </nav>
+            </div>
+
+            <!-- Right: social icons + login/register -->
+            <div class="nav-right">
+                <div class="icon-group">
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
+                </div>
+
+                <div class="auth-links">
+                    <a href="login.html">Login</a>
+                    <a href="regester.html">Register</a>
+
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ========== REGISTER FORM ========== -->
+    <main class="auth-main">
+        <div class="auth-box">
+            <h2>Register Now :</h2>
+
+            <form>
+                <div class="form-group">
+                    <label for="regName">name :</label>
+                    <input type="text" id="regName">
+                </div>
+
+                <div class="form-group">
+                    <label for="regEmail">email :</label>
+                    <input type="email" id="regEmail">
+                </div>
+
+                <div class="form-group">
+                    <label for="regPassword">password :</label>
+                    <input type="password" id="regPassword">
+                </div>
+
+                <div class="form-group">
+                    <label for="regRePassword">rePassword :</label>
+                    <input type="password" id="regRePassword">
+                </div>
+
+                <div class="form-group">
+                    <label for="regPhone">phone :</label>
+                    <input type="tel" id="regPhone">
+                </div>
+
+                <button type="submit" class="auth-btn">Register</button>
+            </form>
+        </div>
+    </main>
+
+   
+
+</body>
+</html>

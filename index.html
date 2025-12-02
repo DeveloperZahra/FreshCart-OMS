@@ -18,47 +18,36 @@
 <body>
 
     <!-- ================= HEADER / NAVBAR ================= -->
-    <header class="header">
-        <div class="container navbar">
-            <!-- Left: logo + menu -->
-            <div style="display:flex; align-items:center;">
-                <!-- Logo -->
-                <a href="index.html" class="logo">
-                    <!-- Put your logo image in images/freshcart-logo.svg -->
-                    <img src="images/freshcart-logo.svg" alt="FreshCart Logo">
+    <nav class="navbar">
+        <div class="container nav-container">
 
-                </a>
-
-                <!-- Menu links -->
-                <nav class="nav-links">
-                    <a href="index.html">Home</a>
-                    <a href="#">Cart</a>
-                    <a href="#">Products</a>
-                    <a href="#">Categories</a>
-                    <a href="#">Brands</a>
-                </nav>
+            <!-- Logo -->
+            <div class="nav-left">
+                <img src="./images/freshcart-logo.svg" alt="FreshCart Logo" class="logo">
+                <ul class="nav-links">
+                    <li><a class="active" href="#">Home</a></li>
+                    <li><a href="#">Cart</a></li>
+                    <li><a href="#">Wish List</a></li>
+                    <li><a href="#">Brands</a></li>
+                </ul>
             </div>
 
-            <!-- Right: social icons + login/register -->
+            <!-- Social + Profile -->
             <div class="nav-right">
-                <div class="icon-group">
-                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
-                    <a href="#"><i class="fa-brands fa-tiktok"></i></a>
-                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
-                    <a href="#"><i class="fa-brands fa-linkedin"></i></a>
-                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
-                    <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
-                </div>
+                <i class="fa-brands fa-instagram"></i>
+                <i class="fa-brands fa-facebook"></i>
+                <i class="fa-brands fa-tiktok"></i>
+                <i class="fa-solid fa-x"></i>
+                <i class="fa-brands fa-linkedin"></i>
+                <i class="fa-brands fa-youtube"></i>
 
-                <div class="auth-links">
-                    <a href="login.html">Login</a>
-                    <a href="regester.html">Register</a>
-
-                </div>
+                <i class="fa-solid fa-user user-icon"></i>
             </div>
+
         </div>
-    </header>
+    </nav>
+
+
 
     <!-- ================= HERO SECTION ================= -->
     <section class="hero">
@@ -68,17 +57,17 @@
 
                 <!-- Left big banner -->
                 <div class="hero-left">
-                    <img src="./images/hero-main.png" alt="Main Banner">
+                    <img src="./images/slider-image-1.jpeg" alt="Main Banner">
                 </div>
 
                 <!-- Right side: 2 small banners -->
                 <div class="hero-right">
                     <div class="hero-small">
-                        <img src="./images/hero-right-1.png" alt="Small Banner 1">
+                        <img src="./images/slider-image-2.jpeg" alt="Small Banner 1">
                     </div>
 
                     <div class="hero-small second">
-                        <img src="./images/hero-right-2.png" alt="Small Banner 2">
+                        <img src="./images/slider-image-3.jpeg" alt="Small Banner 2">
                     </div>
                 </div>
 
@@ -86,231 +75,99 @@
 
     </section>
 
-    <!-- ================= CATEGORIES SECTION ================= -->
-    <section class="categories">
+    <section class="products">
         <div class="container">
-            <h2>Shop Popular Categories</h2>
-
-            <div class="categories-row">
-                <!--  category card 1  -->
-                <div class="category-card">
-                    <img src="./images/cat-books.png" alt="Children Books">
-                    <div class="category-label">Books</div>
-                </div>
-
-                <!--  category card  2 -->
-                <div class="category-card">
-                    <img src="./images/1678303526206-cover.jpeg" alt="Gaming">
-                    <div class="category-label">Gaming Laptops</div>
-                </div>
-
-                <!--  category card  3 -->
-                <div class="category-card">
-                    <img src="./images/1678305677165-cover.jpeg" alt="Mobiles">
-                    <div class="category-label">TP-Link Wireless Router</div>
-                </div>
-
-                <!--  category card  4 -->
-                <div class="category-card">
-                    <img src="./images/1680391434638-cover.jpeg" alt="Mobiles">
-                    <div class="category-label">Men's Plaid Lounge Pants</div>
-                </div>
-
-                <!--  category card  5 -->
-                <div class="category-card">
-                    <img src="./images/1680392991271-cover.jpeg" alt="Mobiles">
-                    <div class="category-label">Men’s Navy Crew Neck Sweater</div>
-                </div>
-
-                <!--  category card  6 -->
-                <div class="category-card">
-                    <img src="./images/1680401672268-cover.jpeg" alt="Mobiles">
-                    <div class="category-label">Women's Lavender Joggers</div>
-                </div>
-
-                <!--  category card  7 -->
-                <div class="category-card">
-                    <img src="./images/cat-home.png" alt="Home">
-                    <div class="category-label">Home</div>
-                </div>
-
-                <!--  category card  8 -->
-                <div class="category-card">
-                    <img src="./images/cat-beauty.png" alt="Beauty">
-                    <div class="category-label">Beauty &amp; Health</div>
-                </div>
-
-                <!--  category card  9 -->
-                <div class="category-card">
-                    <img src="./images/cat-baby.png" alt="Baby">
-                    <div class="category-label">Baby &amp; Toys</div>
-                </div>
-            </div>
+            <div id="productsContainer" class="products-grid"></div>
         </div>
     </section>
 
-    <!-- ================= PRODUCTS SECTION ================= -->
-    <section class="products">
-        <div class="container">
-            <section class="products-grid">
 
-                <!-- Product card 1 -->
-                <div class="product-card">
-                    <img src="./images/cat-books.png" alt="Children Book">
-                    <div class="product-category">Books</div>
-                    <div class="product-name">Children's Story Book</div>
-                    <div class="product-price">199 EGP</div>
-                    <div class="product-rating">
-                        <span class="star">&#9733;</span>
-                        <span>4.8</span>
-                    </div>
-                </div>
+    <script>
+        fetch("https://ecommerce.routemisr.com/api/v1/products")
+            .then(response => response.json())
+            .then(result => {
+                console.log(result);
 
-                <!-- Product card 2 -->
-                <div class="product-card">
-                    <img src="./images/1678303526206-cover.jpeg" alt="Gaming Laptop">
-                    <div class="product-category">Electronics</div>
-                    <div class="product-name">Gaming Laptop</div>
-                    <div class="product-price">42960 EGP</div>
-                    <div class="product-rating">
-                        <span class="star">&#9733;</span>
-                        <span>4.7</span>
-                    </div>
-                </div>
+                const products = result.data;
+                const container = document.getElementById("productsContainer");
 
-                <!-- Product card 3 -->
-                <div class="product-card">
-                    <img src="./images/1678305677165-cover.jpeg" alt="TP-Link Router">
-                    <div class="product-category">Electronics</div>
-                    <div class="product-name">TP-Link Wireless Router</div>
-                    <div class="product-price">1699 EGP</div>
-                    <div class="product-rating">
-                        <span class="star">&#9733;</span>
-                        <span>4.5</span>
-                    </div>
-                </div>
+                products.forEach(item => {
+                    const card = `
+        <div class="product-card">
+          <img src="${item.imageCover}" alt="${item.title}">
+          <h3>${item.title}</h3>
+          <p>${item.price} EGP</p>
+        </div>
+      `;
 
-                <!-- Product card 4-->
-                <div class="product-card">
-                    <img src="./images/1680391434638-cover.jpeg" alt="Men's Pants">
-                    <div class="product-category">Men</div>
-                    <div class="product-name">Men's Plaid Lounge Pants</div>
-                    <div class="product-price">799 EGP</div>
-                    <div class="product-rating">
-                        <span class="star">&#9733;</span>
-                        <span>4.3</span>
-                    </div>
-                </div>
+                    container.innerHTML += card;
+                });
+            })
+            .catch(err => console.error("Error loading products:", err));
+
+    </script>
+
+    <script>
+        const links = document.querySelectorAll(".nav-links a");
+
+        links.forEach(link => {
+            link.addEventListener("click", () => {
+                links.forEach(l => l.classList.remove("active"));
+                link.classList.add("active");
+            });
+        });
+    </script>
 
 
-                <!-- Product card 5-->
-                <div class="product-card">
-                    <img src="./images/1680392991271-cover.jpeg" alt="Navy Sweater">
-                    <div class="product-category">Men</div>
-                    <div class="product-name">Men’s Navy Crew Neck Sweater</div>
-                    <div class="product-price">1199 EGP</div>
-                    <div class="product-rating">
-                        <span class="star">&#9733;</span>
-                        <span>4.6</span>
-                    </div>
-                </div>
+    <!-- ========== APP FOOTER SECTION ========== -->
+    <div class="app-section">
+        <div class="container app-grid">
 
-                <!-- Product card 6-->
-                <div class="product-card">
-                    <img src="./images/1680401672268-cover.jpeg" alt="Women's Joggers">
-                    <div class="product-category">Women</div>
-                    <div class="product-name">Women's Lavender Joggers</div>
-                    <div class="product-price">699 EGP</div>
-                    <div class="product-rating">
-                        <span class="star">&#9733;</span>
-                        <span>4.4</span>
-                    </div>
-                </div>
 
-                <!-- Product card 7-->
-                <div class="product-card">
-                    <img src="./images/cat-home.png" alt="Home Decor">
-                    <div class="product-category">Home</div>
-                    <div class="product-name">Modern Home Decor Set</div>
-                    <div class="product-price">1599 EGP</div>
-                    <div class="product-rating">
-                        <span class="star">&#9733;</span>
-                        <span>4.8</span>
-                    </div>
-                </div>
-                <!-- Product card 8-->
-                <div class="product-card">
-                    <img src="./images/cat-beauty.png" alt="Beauty Products">
-                    <div class="product-category">Beauty & Health</div>
-                    <div class="product-name">Beauty & Skin Care Kit</div>
-                    <div class="product-price">899 EGP</div>
-                    <div class="product-rating">
-                        <span class="star">&#9733;</span>
-                        <span>4.7</span>
-                    </div>
-                </div>
+            <h2 class="app-title">Get the FreshCart app</h2>
+            <p class="app-sub">
+                We will send you a link, open it on your phone to download the app.
+            </p>
 
-                <!-- Product card 9-->
-                <div class="product-card">
-                    <img src="./images/cat-baby.png" alt="Baby Toys">
-                    <div class="product-category">Baby & Toys</div>
-                    <div class="product-name">Baby Toys Gift Set</div>
-                    <div class="product-price">499 EGP</div>
-                    <div class="product-rating">
-                        <span class="star">&#9733;</span>
-                        <span>4.9</span>
+            <div class="app-form">
+                <input type="email" placeholder="Email ..">
+                <button>Share App Link</button>
+            </div>
+
+            <div class="app-bottom">
+
+                <div class="payment-section">
+                    <span class="payment-title">Payment Partners</span>
+
+                    <div class="payment-icons">
+                        <i class="fa-brands fa-amazon-pay amazon"></i>
+                        <i class="fa-brands fa-cc-amex amex"></i>
+                        <i class="fa-brands fa-cc-mastercard master"></i>
+                        <i class="fa-brands fa-cc-paypal paypal"></i>
                     </div>
+
+                    <div class="store-section">
+                        <span class="store-title">Get deliveries with FreshCart</span>
+
+                        <div class="store-logos">
+                            <i class="fa-brands fa-app-store-ios appstore"></i>
+                            <i class="fa-brands fa-google-play playstore"></i>
+                        </div>
+
+
+
+                    </div>
+
                 </div>
+            </div>
+
             </section>
 
-            <!-- ========== APP FOOTER SECTION ========== -->
-            <div class="app-section">
-                <div class="container app-grid">
 
 
-                    <h2 class="app-title">Get the FreshCart app</h2>
-                    <p class="app-sub">
-                        We will send you a link, open it on your phone to download the app.
-                    </p>
-
-                    <div class="app-form">
-                        <input type="email" placeholder="Email ..">
-                        <button>Share App Link</button>
-                    </div>
-
-                    <div class="app-bottom">
-
-                        <div class="payment-section">
-                            <span class="payment-title">Payment Partners</span>
-
-                            <div class="payment-icons">
-                                <i class="fa-brands fa-amazon-pay amazon"></i>
-                                <i class="fa-brands fa-cc-amex amex"></i>
-                                <i class="fa-brands fa-cc-mastercard master"></i>
-                                <i class="fa-brands fa-cc-paypal paypal"></i>
-                            </div>
-
-                            <div class="store-section">
-                                <span class="store-title">Get deliveries with FreshCart</span>
-
-                                <div class="store-logos">
-                                    <i class="fa-brands fa-app-store-ios appstore"></i>
-                                    <i class="fa-brands fa-google-play playstore"></i>
-                                </div>
-
-
-
-                            </div>
-
-                        </div>
-                    </div>
-
-    </section>
-
-
-    <!-- JS FILES -->
-    <script src="./JS/bootstrap.bundle.min.js"></script>
-    <script src="./JS/all.min.js"></script>
+            <!-- JS FILES -->
+            <script src="./JS/bootstrap.bundle.min.js"></script>
+            <script src="./JS/all.min.js"></script>
 
 
 </body>

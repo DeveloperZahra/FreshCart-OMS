@@ -1,3 +1,7 @@
+// ===============================
+// NAV ICONS ACTIVE STATE
+// ===============================
+
 const icons = document.querySelectorAll('.nav-right i');
 
 icons.forEach(icon => {
@@ -11,6 +15,9 @@ icons.forEach(icon => {
     });
 });
 
+// ===============================
+// USER MENU TOGGLE
+// ===============================
 const userIcon = document.querySelector(".user-icon");
 const userMenu = document.querySelector(".user-menu");
 
@@ -27,7 +34,9 @@ document.addEventListener("click", () => {
 
 
 
-
+// ===============================
+// MOBILE MENU TOGGLE
+// ===============================
 const menuBtn = document.querySelector(".menu-toggle");
 const navLinks = document.querySelector(".nav-links");
 

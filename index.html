@@ -104,13 +104,24 @@
 
     </section>
 
+    <!-- ========== CATEGORIES SECTION ========== -->
+    <section class="categories">
+        <div class="container">
+            <h2>Categories we offer:</h2>
+
+
+            <div id="categoriesRow" class="categories-row"></div>
+        </div>
+    </section>
+
+    <!-- ========== PRODUCTS SECTION ========== -->
     <section class="products">
         <div class="container">
             <div id="productsContainer" class="products-grid"></div>
         </div>
     </section>
 
-
+    <!-- =============================== JAVASCRIPT FETCHING PRODUCTS =============================== -->
     <script>
         fetch("https://ecommerce.routemisr.com/api/v1/products")
             .then(response => response.json())
@@ -118,33 +129,75 @@
                 console.log(result);
 
                 const products = result.data;
-                const container = document.getElementById("productsContainer");
+
+                const productsContainer = document.getElementById("productsContainer");
+                const categoriesRow = document.getElementById("categoriesRow");
+
+
+                // ========Building product cards==========
 
                 products.forEach(item => {
-                    const card = `
+                    const productCard = `
         <div class="product-card">
           <img src="${item.imageCover}" alt="${item.title}">
-          <h3>${item.title}</h3>
-          <p>${item.price} EGP</p>
+          <p class="product-category">${item.category?.name || ""}</p>
+          <h3 class="product-name">${item.title}</h3>
+          <p class="product-price">${item.price} EGP</p>
         </div>
       `;
-
-                    container.innerHTML += card;
+                    productsContainer.innerHTML += productCard;
                 });
-            })
-            .catch(err => console.error("Error loading products:", err));
+
+
+                //============Building category cards==============
+
+                //select one product per category to use its image.
+
+                const categoryMap = new Map(); // name → product
+
+                products.forEach(item => {
+                    const catName = item.category?.name;
+                    if (!catName) return;
+
+                    if (!categoryMap.has(catName)) {
+                        categoryMap.set(catName, item);
+                    }
+                });
+
+                // show categories (max 9)
+                let count = 0;
+                categoryMap.forEach((item, catName) => {
+                    if (!categoriesRow) return;
+
+                    if (count >= 9) return;
+                    
+                    const categoryCard = `
+  <div class="category-card">
+    <div class="category-image-wrap">
+      <img src="${item.imageCover}" alt="${catName}">
+    </div>
+
+    <div class="category-footer">
+      <a href="#">${catName}</a>
+    </div>
+  </div>
+`;
+
+
+                })
+                    .catch(err => console.error("Error loading products:", err));
 
     </script>
 
     <script>
-        const links = document.querySelectorAll(".nav-links a");
+                const links = document.querySelectorAll(".nav-links a");
 
-        links.forEach(link => {
-            link.addEventListener("click", () => {
-                links.forEach(l => l.classList.remove("active"));
-                link.classList.add("active");
-            });
-        });
+                links.forEach(link => {
+                    link.addEventListener("click", () => {
+                        links.forEach(l => l.classList.remove("active"));
+                        link.classList.add("active");
+                    });
+                });
     </script>
 
 

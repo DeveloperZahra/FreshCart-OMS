@@ -5,14 +5,20 @@
     <!-- Basic head info -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FreshCart - Home</title>
+    <link rel="icon" href="data:image/svg+xml,
+%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 576 512'%3E
+%3Cpath fill='%2300aa32' d='M528.12 301.319l47.273-208C578.812 81.553 566.854 64 548.12 64H131.441l-4.899-23.319C123.536 27.238 110.343 16 95.441 16H24C10.745 16 0 26.745 0 40v16c0 13.255 10.745 24 24 24h49.441l70.058 334.319C136.464 435.762 149.657 448 164.559 448H488c13.255 0 24-10.745 24-24v-16c0-13.255-10.745-24-24-24H184.441l-9.899-48H512c11.206 0 20.93-7.754 23.648-18.681zM192 496c26.51 0 48-21.49 48-48s-21.49-48-48-48-48 21.49-48 48 21.49 48 48 48zm288 0c26.51 0 48-21.49 48-48s-21.49-48-48-48-48 21.49-48 48 21.49 48 48 48z'/%3E
+%3C/svg%3E">
 
-    <!-- Main CSS file -->
-    <link rel="stylesheet" href="./CSS/style.css">
+    <title>FreshCart</title>
+
 
     <!-- Font Awesome for icons (social, cart, user) -->
     <link rel="stylesheet" href="./CSS/bootstrap.min.css">
     <link rel="stylesheet" href="./CSS/all.min.css">
+
+    <!-- Main CSS file -->
+    <link rel="stylesheet" href="./CSS/style.css">
 </head>
 
 <body>
@@ -24,6 +30,7 @@
             <!-- Logo -->
             <div class="nav-left">
                 <img src="./images/freshcart-logo.svg" alt="FreshCart Logo" class="logo">
+
                 <ul class="nav-links">
                     <li><a class="active" href="#">Home</a></li>
                     <li><a href="#">Cart</a></li>
@@ -34,14 +41,36 @@
 
             <!-- Social + Profile -->
             <div class="nav-right">
-                <i class="fa-brands fa-instagram"></i>
-                <i class="fa-brands fa-facebook"></i>
-                <i class="fa-brands fa-tiktok"></i>
-                <i class="fa-solid fa-x"></i>
-                <i class="fa-brands fa-linkedin"></i>
-                <i class="fa-brands fa-youtube"></i>
 
-                <i class="fa-solid fa-user user-icon"></i>
+
+
+
+                <!-- social icons -->
+                <i class="fa-brands fa-instagram social-icon instagram"></i>
+                <i class="fa-brands fa-facebook social-icon facebook"></i>
+                <i class="fa-brands fa-tiktok social-icon tiktok"></i>
+                <i class="fa-solid fa-x social-icon x"></i>
+                <i class="fa-brands fa-linkedin social-icon linkedin"></i>
+                <i class="fa-brands fa-youtube social-icon youtube"></i>
+
+                <!-- user icon -->
+                <div class="user-container">
+                    <i class="fa-solid fa-user user-icon"></i>
+
+                    <div class="user-menu">
+                        <ul>
+                            <li><a href="login.html">Log-in</a></li>
+                            <li><a href="regester.html">Register</a></li>
+                            <li><a href="#">Profile</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+
+                <!-- hamburger -->
+                <div class="menu-toggle">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
             </div>
 
         </div>
@@ -165,9 +194,12 @@
 
 
 
+
             <!-- JS FILES -->
             <script src="./JS/bootstrap.bundle.min.js"></script>
             <script src="./JS/all.min.js"></script>
+            <script src="./JS/script.js"></script>
+
 
 
 </body>

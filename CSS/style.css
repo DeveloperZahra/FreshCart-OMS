@@ -34,9 +34,9 @@ a {
 /* Container to limit width */
 .container {
     width: 100%;
-    max-width: 100px;
-    margin: 0;
-     padding: 0 30px;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 30px;
 }
 
 /* ================================
@@ -62,14 +62,24 @@ a {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-left: 0;
+  width: 95%;
+  margin: 0 auto;
 }
+
 
 /* Left side */
 .nav-left {
   display: flex;
   align-items: center;
-  gap: 40px;
+  gap: 20px;
+}
+
+/* RIGHT SIDE */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 8px; 
+  margin-left: auto; 
 }
 
 /* Logo size */
@@ -106,22 +116,135 @@ a {
 }
 
 /* Right icons */
-.nav-right i {
-  font-size: 20px;
-  margin-left: 18px;
-  color: #111;
+
+.social-icon {
+  color: #222;
+  font-size: 22px;
+  margin-left: 0px;
   cursor: pointer;
-  transition: 0.2s;
+  transition: 0.25s ease;
 }
 
-.nav-right i:hover {
-  color: #009900;
+/* Hover Colors */
+
+/* Instagram */
+.social-icon.instagram:hover {
+  color: #E1306C;
+  transform: scale(1.18);
 }
+
+/* Facebook */
+.social-icon.facebook:hover {
+  color: #1877F2;
+  transform: scale(1.18);
+}
+
+/* TikTok */
+.social-icon.tiktok:hover {
+  color: #000;
+  transform: scale(1.18);
+}
+
+/* X (Twitter) */
+.social-icon.x:hover {
+  color: #000;
+  transform: scale(1.18);
+  
+}
+
+/* LinkedIn */
+.social-icon.linkedin:hover {
+  color: #0A66C2;
+  transform: scale(1.18);
+}
+
+/* YouTube */
+.social-icon.youtube:hover {
+  color: #FF0000;
+  transform: scale(1.18);
+  
+}
+
 
 /* User icon */
 .user-icon {
-  font-size: 22px;
+  font-size: 30px;
   margin-left: 25px;
+   color: #222;
+  transition: 0.25s ease;
+}
+
+.user-icon:hover {
+  color: #009900 ;
+  transform: scale(1.20);
+}
+
+.user-container {
+    position: relative;
+    cursor: pointer;
+
+}
+
+/* USER DROPDOWN MENU */
+.user-menu {
+    position: absolute;
+    top: 35px;      
+    right: 0;       
+    display: none;
+    background: #ffffff;
+    width: 180px;
+    padding: 10px 0;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    z-index: 999999;
+}
+
+
+
+.user-menu.show {
+    display: block;
+}
+
+.user-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.user-menu li {
+    padding: 10px;
+    text-align: center;
+}
+
+.user-menu li a {
+    color: #333;
+    text-decoration: none;
+    font-size: 16px;
+    display: block;
+}
+
+.user-menu li a:hover {
+    background: #f1f4f2;
+    color: #00aa32; 
+    border-radius: 6px;
+}
+
+/*===============================================
+/* HAMBURGER BUTTON (hidden by default) */
+
+.menu-toggle {
+     display: none;
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    margin-left: 15px;
+    cursor: pointer;
+}
+
+.menu-toggle i {
+  font-size: 22px;
+    display: block !important;
+    z-index: 99999;
 }
 
 
@@ -300,7 +423,7 @@ a {
     border-top: 1px solid var(--border);
     margin-top: 50px;
     display: flex;
-    justify-content: center;
+    
 }
 
 .app-grid {
@@ -465,12 +588,47 @@ a {
 /* ========== RESPONSIVE DESIGN ========== */
 
 /*  MOBILE  */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
 
     /* HEADER */
-    .nav-links {
+     .nav-links {
         display: none;
+        flex-direction: column;
+        background: #f1f4f2;
+        padding: 15px;
+        width: 100%;
+        border-radius: 10px;
+        margin-top: 10px;
     }
+
+    
+    /* Hide social icons + user */
+    .nav-right i:not(.fa-bars) {
+        display: none !important;
+    }
+
+    /* Show hamburger */
+    .menu-toggle {
+        display: block  !important;
+    }
+
+     .nav-icons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  } 
+
+.nav-links.open {
+  display: flex !important;
+  position: absolute;
+  top: 70px;
+  right: 10px;
+  background: #f1f4f2;
+  flex-direction: column;
+  padding: 15px 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
 
     .navbar {
         flex-direction: column;

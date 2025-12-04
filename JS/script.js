@@ -50,3 +50,47 @@ menuBtn.addEventListener("click", () => {
     navLinks.style.borderRadius = "10px";
 });
 
+const productContainer = document.getElementById("productsGrid");
+
+products.forEach(product => {
+    productContainer.innerHTML += `
+    <div class="product-card">
+        <img src="${product.imageCover}" class="product-img">
+
+        <p class="product-category">${product.category.name}</p>
+
+        <h3 class="product-title">${product.title}</h3>
+
+        <div class="product-price-rating">
+            <span class="price">${product.price} EGP</span>
+            <span class="rating">⭐ ${product.ratingsAverage}</span>
+        </div>
+
+        <div class="product-actions">
+           <button class="view-btn" data-id="${item._id}">view</button>
+
+            <button class="wishlist-btn">Wish List</button>
+        </div>
+    </div>
+    `;
+});
+
+document.addEventListener("click", function (e) {
+    if (e.target.classList.contains("view-btn")) {
+
+        const productId = e.target.getAttribute("data-id");
+
+       
+        document.getElementById("loader-overlay").style.display = "flex";
+
+       
+        setTimeout(() => {
+
+         
+            window.location.href = `product.html?id=${productId}`;
+
+        }, 1500); 
+    }
+});
+
+

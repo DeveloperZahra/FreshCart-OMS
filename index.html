@@ -19,6 +19,10 @@
 
     <!-- Main CSS file -->
     <link rel="stylesheet" href="./CSS/style.css">
+
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
 </head>
 
 <body>
@@ -110,13 +114,22 @@
             <h2>Categories we offer:</h2>
 
 
-            <div id="categoriesRow" class="categories-row"></div>
+            <div class="swiper categoriesSwiper">
+                <div class="swiper-wrapper" id="categoriesRow"></div>
+
+
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+
         </div>
     </section>
 
     <!-- ========== PRODUCTS SECTION ========== -->
     <section class="products">
         <div class="container">
+            <h2 class="section-title">Featured products:</h2>
+
             <div id="productsContainer" class="products-grid"></div>
         </div>
     </section>
@@ -137,124 +150,168 @@
                 // ========Building product cards==========
 
                 products.forEach(item => {
+
+                    const stars = `
+        <span class="rating">
+            ⭐ ${item.ratingsAverage || 0}
+        </span>
+    `;
+
                     const productCard = `
         <div class="product-card">
-          <img src="${item.imageCover}" alt="${item.title}">
-          <p class="product-category">${item.category?.name || ""}</p>
-          <h3 class="product-name">${item.title}</h3>
-          <p class="product-price">${item.price} EGP</p>
+            <div class="product-img">
+                <img src="${item.imageCover}" alt="${item.title}">
+            </div>
+
+            <p class="product-category">${item.category?.name || ""}</p>
+
+            <h3 class="product-name">${item.title}</h3>
+
+            <div class="product-info">
+                <span class="product-price">${item.price} EGP</span>
+                ${stars}
+            </div>
+
+            <div class="product-actions">
+                <button class="view-btn">view</button>
+                <button class="wishlist-btn">Wish List</button>
+            </div>
         </div>
-      `;
+    `;
+
                     productsContainer.innerHTML += productCard;
                 });
 
 
+
+
                 //============Building category cards==============
 
-                //select one product per category to use its image.
+                async function loadCategories() {
+                    const res = await fetch("https://ecommerce.routemisr.com/api/v1/categories");
+                    const data = await res.json();
+                    const categories = data.data;
 
-                const categoryMap = new Map(); // name → product
+                    const row = document.getElementById("categoriesRow");
+                    row.innerHTML = "";
 
-                products.forEach(item => {
-                    const catName = item.category?.name;
-                    if (!catName) return;
-
-                    if (!categoryMap.has(catName)) {
-                        categoryMap.set(catName, item);
-                    }
-                });
-
-                // show categories (max 9)
-                let count = 0;
-                categoryMap.forEach((item, catName) => {
-                    if (!categoriesRow) return;
-
-                    if (count >= 9) return;
-                    
-                    const categoryCard = `
-  <div class="category-card">
-    <div class="category-image-wrap">
-      <img src="${item.imageCover}" alt="${catName}">
-    </div>
-
-    <div class="category-footer">
-      <a href="#">${catName}</a>
-    </div>
-  </div>
-`;
+                    categories.forEach(cat => {
+                        row.innerHTML += `
+            <div class="swiper-slide">
+                <div class="category-card">
+                    <div class="category-image-wrap">
+                        <img src="${cat.image}" alt="${cat.name}">
+                    </div>
+                    <div class="category-footer">
+                        <a href="#">${cat.name}</a>
+                    </div>
+                </div>
+            </div>
+        `;
+                    });
 
 
-                })
-                    .catch(err => console.error("Error loading products:", err));
+                    const swiper = new Swiper(".categoriesSwiper", {
+                        loop: true,
+                        spaceBetween: 24,
+                        speed: 900,
+                        slidesPerView: 9,
+                        navigation: {
+                            nextEl: ".swiper-button-next",
+                            prevEl: ".swiper-button-prev",
+                        },
+                        breakpoints: {
+                            0: { slidesPerView: 2 },
+                            576: { slidesPerView: 3 },
+                            768: { slidesPerView: 4 },
+                            992: { slidesPerView: 6 },
+                            1200: { slidesPerView: 9 }
+                        },
+                        autoplay: {
+                            delay: 1800,
+                            disableOnInteraction: false,
+                        }
+                    });
+                }
+
+                loadCategories();
+
+
+            })
+            .catch(err => console.error("Error loading products:", err));
 
     </script>
 
     <script>
-                const links = document.querySelectorAll(".nav-links a");
+        const links = document.querySelectorAll(".nav-links a");
 
-                links.forEach(link => {
-                    link.addEventListener("click", () => {
-                        links.forEach(l => l.classList.remove("active"));
-                        link.classList.add("active");
-                    });
-                });
+        links.forEach(link => {
+            link.addEventListener("click", () => {
+                links.forEach(l => l.classList.remove("active"));
+                link.classList.add("active");
+            });
+        });
     </script>
 
 
-    <!-- ========== APP FOOTER SECTION ========== -->
-    <div class="app-section">
-        <div class="container app-grid">
 
 
-            <h2 class="app-title">Get the FreshCart app</h2>
-            <p class="app-sub">
-                We will send you a link, open it on your phone to download the app.
-            </p>
+    <!-- JS FILES -->
+    <script src="./JS/bootstrap.bundle.min.js"></script>
+    <script src="./JS/all.min.js"></script>
+    <script src="./JS/script.js"></script>
 
-            <div class="app-form">
-                <input type="email" placeholder="Email ..">
-                <button>Share App Link</button>
-            </div>
-
-            <div class="app-bottom">
-
-                <div class="payment-section">
-                    <span class="payment-title">Payment Partners</span>
-
-                    <div class="payment-icons">
-                        <i class="fa-brands fa-amazon-pay amazon"></i>
-                        <i class="fa-brands fa-cc-amex amex"></i>
-                        <i class="fa-brands fa-cc-mastercard master"></i>
-                        <i class="fa-brands fa-cc-paypal paypal"></i>
-                    </div>
-
-                    <div class="store-section">
-                        <span class="store-title">Get deliveries with FreshCart</span>
-
-                        <div class="store-logos">
-                            <i class="fa-brands fa-app-store-ios appstore"></i>
-                            <i class="fa-brands fa-google-play playstore"></i>
-                        </div>
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
 
-
-                    </div>
-
-                </div>
-            </div>
-
-            </section>
-
-
-
-
-            <!-- JS FILES -->
-            <script src="./JS/bootstrap.bundle.min.js"></script>
-            <script src="./JS/all.min.js"></script>
-            <script src="./JS/script.js"></script>
-
+    <div id="loader-overlay">
+        <div class="loader"></div>
+    </div>
 
 
 </body>
+
+<!-- ==================== APP SECTION ===================== -->
+<section class="app-section">
+    <div class="container app-grid">
+
+        <h2 class="app-title">Get the FreshCart app</h2>
+        <p class="app-sub">
+            We will send you a link, open it on your phone to download the app.
+        </p>
+
+        <div class="app-form">
+            <input type="email" placeholder="Email ..">
+            <button>Share App Link</button>
+        </div>
+
+        <div class="app-bottom">
+
+            <div class="payment-section">
+                <span class="payment-title">Payment Partners</span>
+
+                <div class="payment-icons">
+                    <i class="fa-brands fa-amazon-pay amazon"></i>
+                    <i class="fa-brands fa-cc-amex amex"></i>
+                    <i class="fa-brands fa-cc-mastercard master"></i>
+                    <i class="fa-brands fa-cc-paypal paypal"></i>
+                </div>
+
+                <div class="store-section">
+                    <span class="store-title">Get deliveries with FreshCart</span>
+
+                    <div class="store-logos">
+                        <i class="fa-brands fa-app-store-ios appstore"></i>
+                        <i class="fa-brands fa-google-play playstore"></i>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+
 
 </html>
